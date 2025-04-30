@@ -45,7 +45,7 @@
 /* Fake_Store_API.jsx css code */
 table {
   text-align: center;
-  margin-left: 17%;
+  /* margin-left: 17%; */
 }
 tr {
   color: black;
@@ -84,6 +84,7 @@ button.btn.btn-click {
   color: azure;
 }
 .table-bordered-custom {
+  width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
   border: 2px solid #333;

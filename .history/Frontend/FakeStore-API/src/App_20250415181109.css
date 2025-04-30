@@ -83,14 +83,3 @@ button.btn.btn-click {
   font-size: x-large;
   color: azure;
 }
-.table-bordered-custom {
-  border-collapse: collapse;
-  margin-top: 20px;
-  border: 2px solid #333;
-}
-
-.table-bordered-custom th,
-.table-bordered-custom td {
-  border: 1px solid #555;
-  text-align: left;
-}

@@ -84,6 +84,7 @@ button.btn.btn-click {
   color: azure;
 }
 .table-bordered-custom {
+  width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
   border: 2px solid #333;
@@ -92,5 +93,5 @@ button.btn.btn-click {
 .table-bordered-custom th,
 .table-bordered-custom td {
   border: 1px solid #555;
-  text-align: left;
+  /* text-align: left; */
 }

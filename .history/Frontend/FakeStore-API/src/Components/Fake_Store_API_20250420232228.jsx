@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Pagination } from 'react-bootstrap';
 
 const FakeStoreAPi = () => {
     const [products, setProducts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 5;
-
+    
     useEffect(() => {
         axios.get('http://localhost:5000/products')
             .then(response => setProducts(response.data))
@@ -17,13 +16,10 @@ const FakeStoreAPi = () => {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = products.slice(indexOfFirstItem, indexOfLastItem);
 
-    const totalPages = Math.ceil(products.length / itemsPerPage);
-
     return (
         <div className='fakestore-api-main'>
-            <h1 style={{ textAlign: 'center' }}>Fake Store Data from API</h1>
-            <table className="table-bordered-custom" cellPadding="10px" cellSpacing="2px">
-
+            <h1 style={{textAlign: 'center'}}>Fake Store Data from API</h1>
+            <table border="1" cellPadding="10px" cellSpacing="2px">
                 <thead>
                     <tr>
                         <th>Sr.No</th>
@@ -43,28 +39,8 @@ const FakeStoreAPi = () => {
                     ))}
                 </tbody>
             </table>
-
-            <div className='d-flex justify-content-center mt-3'>
-                <Pagination>
-                    <Pagination.Prev
-                        onClick={() => setCurrentPage(prev => prev - 1)}
-                        disabled={currentPage === 1}
-                    />
-                    {[...Array(totalPages)].map((_, index) => (
-                        <Pagination.Item
-                            key={index + 1}
-                            active={index + 1 === currentPage}
-                            onClick={() => setCurrentPage(index + 1)}
-                        >
-                            {index + 1}
-                        </Pagination.Item>
-                    ))}
-                    <Pagination.Next
-                        onClick={() => setCurrentPage(prev => prev + 1)}
-                        disabled={currentPage === totalPages}
-                    />
-                </Pagination>
-            </div>
+            <button className='btn btn-click' disabled={currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>Previous</button>
+            <button className='btn btn-click' disabled={indexOfLastItem >= products.length} onClick={() => setCurrentPage(currentPage + 1)}>Next</button>
         </div>
     );
 };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom'
 import { Pagination } from 'react-bootstrap';
 
 const FakeStoreAPi = () => {
@@ -36,7 +37,7 @@ const FakeStoreAPi = () => {
                     {currentItems.map((product, index) => (
                         <tr key={product.id}>
                             <td>{index + 1 + (currentPage - 1) * itemsPerPage}</td>
-                            <td><a href={`/product/${product.id}`}>{product.title}</a></td>
+                            <td><Link href={`/product/${product.id}`}>{product.title}</Link></td>
                             <td><img src={product.image} alt={product.title} width="50" /></td>
                             <td>${product.price}</td>
                         </tr>

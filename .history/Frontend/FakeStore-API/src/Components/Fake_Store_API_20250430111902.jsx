@@ -22,9 +22,8 @@ const FakeStoreAPi = () => {
     return (
         <div className='fakestore-api-main'>
             <h1 style={{ textAlign: 'center' }}>Fake Store Data from API</h1>
-            <table className="table-bordered-custom" cellPadding="10px" cellSpacing="2px">
-
-                <thead>
+            <table className='border' border="1" cellPadding="10px" cellSpacing="2px">
+                <thead className='border'>
                     <tr>
                         <th>Sr.No</th>
                         <th>Products</th>
